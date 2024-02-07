@@ -1,9 +1,75 @@
 body {
-  background-color: #f7f7f7;
+  --edge-grey-background: #F6F6F6;
+  --edge-background: var(--edge-grey-background);
+  --edge-black: #101010;
+  --edge-primary-text-color: var(--edge-black);
+  background: var(--edge-background);
+  color: var(--edge-primary-text-color);
+  word-wrap: break-word;
 }
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #3b3b3b;
-  }
+    --google-gray-900: #2D2D2D;
+    --background-color: var(--google-gray-900);
+    --edge-black: #FFFFFF;
+    --edge-primary-text-color: var(--edge-black);
+    background: var(--background-color);
+    color: var(--edge-primary-text-color);
+    word-wrap: break-word;
+}
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  display: flex;
+}
+
+.footer div:first-of-type {
+  margin-right: auto;
+}
+
+.left-footer {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  margin-left: 40px;
+}
+
+.edge-logo {
+  content: url(data:image/png;base64,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);
+  width: 24px;
+  height: 24px;
+}
+
+.footer div:first-of-type {
+    margin-right: auto;
+}
+
+div {
+    display: block;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    font-size: 125%;
+}
+
+style attribute {
+    font-family: system-ui, sans-serif;
+    font-size: 75%;
+}
+
+.edge-branding-text {
+  flex: 82%;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: right;
 }
